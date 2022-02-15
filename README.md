@@ -9,16 +9,11 @@ In many cases, however, it would be good if the code is readable and re-usable,
 either because you have to look at it again a year later for an R&R or follow-up study,
 or because the script or tool is useful for other researchers. 
 
-This workshop will be taught in two sessions. The first session will focus on the code itself, the second will look at dissemination and unit testing.
+Programme:
 
-## Session 1) Readability, re-usability
-
-+ [Readability](readability.md): Variable names, comments, docstrings, documentation ...
-+ [Re-usability](reusability.md): Functions, classes, modules, command line arguments ...
-
-
-## Session 2) Dissemination and (automatic) unit testing 
-
-+ [Dissemination](dissemination.md): Publishing your package on pypi/CRAN
-+ [Unit testing](testing.md): Unit tests, test-driven development, and github actions
+1. [Introduction](intro.md): What & why?
+2. [Structure](readability.md): Functions, classes, modules, and command line arguments
+3. [Documentation](reusability.md): Comments, docstrings, and documentation
+4. [Typing](typing.md): Publishing your package on pypi/CRAN
+5. [Testing](testing.md): Unit tests, test-driven development, and github actions
 
