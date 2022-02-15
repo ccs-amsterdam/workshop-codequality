@@ -12,7 +12,7 @@ or because the script or tool is useful for other researchers.
 Programme:
 
 1. [Introduction](intro.md): What & why?
-2. [Structure](readability.md): Functions, classes, modules, and command line arguments
+2. [Structure](structure.md): Functions, classes, modules, and command line arguments
 3. [Documentation](reusability.md): Comments, docstrings, and documentation
 4. [Typing](typing.md): Publishing your package on pypi/CRAN
 5. [Testing](testing.md): Unit tests, test-driven development, and github actions
