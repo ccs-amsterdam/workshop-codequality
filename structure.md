@@ -14,7 +14,7 @@ If you are uncertain about the syntax or workings of functions, classes, and mod
 
 (Note that I'm ignoring *modules* here to keep things simple, hopefully we will add a *packaging and dissemination* tutorial at some point)
 
-There are three common best practices that are often quoted for sturcturing code: *Don't repeat yourself (DRY)*, *separation of concerns*,
+There are three common best practices that are often quoted for structuring code: *Don't repeat yourself (DRY)*, *separation of concerns*,
 and *You ain't gonna need it (YAGNI)*. 
 
 ## DRY: Don't repeat yourself
@@ -23,7 +23,7 @@ The most important and obvious idea behind using functions is to avoid copy-past
 Quite often, you find yourself doing the same thing in multiple places in the code.
 
 **What:** A very obvious example is copy-pasting code to repeat the same operation on multiple datasets, values, rows or columns. 
-Rather than copy-pasting the operation, it is almost always better to turn it into some for of *for loop*. 
+Rather than copy-pasting the operation, it is almost always better to turn it into some form of *for loop*. 
 In most cases, but especially if the operation is non-trivial and/or occurs in separate locations of your code,
 it can also be a good idea to place the operation in a separate *function*. 
 
@@ -63,7 +63,7 @@ for i in range(len(guess)):
     evaluate_character(output, word, guess, i)
 ```
 
-In this case, the direct benefit of turning the loop body into a fuction is not immediately clear.
+In this case, the direct benefit of turning the loop body into a function is not immediately clear.
 However, this is very useful if operation is used in different places of the code. 
 But also in a case like this, moving the code into a separate function can help for readability, 
 as it decreases the complexity of the main loop, making it easier to get a quick overview of what happens in each step,
@@ -125,7 +125,7 @@ def evaluate_character(word, guess, index):
         return "INWORD"
     return "INCORRECT"
 
-COLORS = {"CORRECT": Back.GREEN, "INWORD": Back.YELLOW, "ONCORRECT": ""}
+COLORS = {"CORRECT": Back.GREEN, "INWORD": Back.YELLOW, "INCORRECT": ""}
 def color_code_characater(character, evaluation):
     color = COLORS[evaluation]
     return f"{color}{character}{Style.RESET_ALL}"
