@@ -170,3 +170,14 @@ when you actually need the features and most importantly when you understand exa
 Your code becomes more complex, and once you add a feature it becomes a sort of 'promise' or obligation to keep that feature maintained.
 This might actually make it more difficult later to properly implement the feature once you understand the exact requirements, as then 
 you have to keep both the old version and the 'proper' version in place. 
+
+## Assignment
+
+Look at the full eldrow code [here](https://github.com/vanatteveldt/eldrow/blob/main/eldrow.py). 
+
+* Can you identify parts of the code that violate the DRY or separation of concerns?
+* Which functions would you make to solve these issues?
+* Refactor the code by making those functions and changing the main logic. 
+* Do you think the new code improves on the reusability and readability of the program? 
+
+(Ideally, clone the code locally, start a new branch, and make your changes in the branch so we can compare them through a pull request! See our [previous workshop on using github](https://github.com/vanatteveldt/github-workshop))
