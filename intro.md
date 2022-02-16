@@ -20,7 +20,7 @@ without unneeded complications or repetitions, and with every part of the code s
 just like every paragraph and section in a paper has its purpose.
 
 Now, remember that the most likely “other person” to be staring at your code is your future self. 
-A year from now, when you finally get the R&R for your paper or your are starting a follow-up for your study, 
+A year from now, when you finally get the R&R for your paper or you are starting a follow-up for your study, 
 you probably won’t remember much about why you made certain coding decisions or how you used the code. 
 Thus, by making it readable and reusable you are helping yourself as much as the community. 
 
