@@ -14,8 +14,8 @@ If you are uncertain about the syntax or workings of functions, classes, and mod
 
 (Note that I'm ignoring *modules* here to keep things simple, hopefully we will add a *packaging and dissemination* tutorial at some point)
 
-There are two main best practices that are often quoted for sturcturing code: *Don't repeat yourself (DRY)*, *separation of concerns*,
-and *You ain't gonna need it (YAGNI)*. To this, we add a third princple, namely *structure as documentation*. 
+There are three common best practices that are often quoted for sturcturing code: *Don't repeat yourself (DRY)*, *separation of concerns*,
+and *You ain't gonna need it (YAGNI)*. 
 
 ## DRY: Don't repeat yourself
 
@@ -106,8 +106,67 @@ By *abstracting* the operation to a function which is called from multiple locat
 
 ## Separation of concerns: do one thing, and do it well
 
+**What:** A second principle of writing good code is separation of concerns:
+try to make sure each function or block of code does one thing (and does that one thing well).
+This is very similar to writing papers: each paragraph should really make one point (and hopefully make that point well),
+and each section should have one clear purpose.
 
+In code, that generally means that a function should not mix e.g. *business logic* (e.g. when is a word valid) and *presentation logic* (how to present this to the user). Similarly, code that deals with external data source (files or databases) should generally be separate from code that does analyses on these data. 
+Code should also not mix different kinds of business logic unless they are related.  
+
+**How:** 
+Let's look at the function we wrote above. This clearly mixes two concerns: determining the state of a letter (correct, in word, or incorrect) and outputting a color. By changing this into two separate functions, it will be easier to see that the 'business logic' is correct and makes it more explicit how it relates to the presentation logic:
+
+```{python}
+def evaluate_character(word, guess, index):
+    if guess[index] == word[index]:
+        return "CORRECT"
+    if guess[index] in word:
+        return "INWORD"
+    return "INCORRECT"
+
+COLORS = {"CORRECT": Back.GREEN, "INWORD": Back.YELLOW, "ONCORRECT": ""}
+def color_code_characater(character, evaluation):
+    color = COLORS[evaluation]
+    return f"{color}{character}{Style.RESET_ALL}"
+
+# ... and in the main loop ....
+for i in range(len(guess)):
+    evaluation = evaluate_character(word, guess, i)
+    coded_char = color_code_character(guess[i], evaluation)
+    output.append(coded_char)
+```
+
+As you can see here, we now have two functions that have a single purpose (evaluating or color-coding),
+and the dependency between the functions is clear (evaluating requires the word, guess, and letter index,
+while color coding requires only the character and the evaluation). 
+In my opinion, this also makes the main loop more legible, as you can immediately see that it first does evaluation, 
+then color-codes the word, and finally appends it to the output. 
+
+To understand the main logic, you don't even need to read the function definitions,
+but when needed you can 'zoom in' to the specific implementation by reading those definitions. 
+Moreover, if something is wrong with either the validation or the color coding, or if you want to change the way either part works, 
+you now immedately know where to look.
+
+**Why:** As for DRY, the goal of this principle is to make code maintainable and readable. 
+If each function does exactly one thing, it is easy to check (and to test and document) that one function.
+It also makes it easier to make changes later on: if you e.g. want to move from a terminal-wordle to a browser-based worlde,
+you would ideally only have to change the presentation logic and keep the business logic of validating guesses the same. 
 
 ## YAGNI: You ain't gonna need it
 
-## Structure as documentation
+**What:** When writing functions or other code that you think other people (or you) will use,
+it is tempting to think about all possible use cases and make your code as widely applicable as possible.
+Although this sounds noble, our advise here is to focus on what you need right now, not on what you might need later.
+The reason for this is that *you ain't gonna need it (YAGNI)*, by which we mean that many of the use cases you envision now won't actually occur,
+if they do occcur they probably have slightly different requirements than you thought, and you probably didn't envision the most frequent future use cases.
+
+So, rather than immediately adding features or options for things that you might need later,
+focus on doing what you need done now.
+By writing that code in a clean way (through abstraction and separation of concerns) it should be relatively easy to add features later,
+when you actually need the features and most importantly when you understand exactly what is needed.
+
+**Why:** While it seems to make sense to make a program as useful as possible, adding features always comes at a cost.
+Your code becomes more complex, and once you add a feature it becomes a sort of 'promise' or obligation to keep that feature maintained.
+This might actually make it more difficult later to properly implement the feature once you understand the exact requirements, as then 
+you have to keep both the old version and the 'proper' version in place. 
