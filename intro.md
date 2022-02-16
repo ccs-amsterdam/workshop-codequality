@@ -39,5 +39,5 @@ As beauty is in the eye of the beholder, in many cases what is clean partly depe
 As a guiding example, we will use a “anti-pattern” (i.e. not very clean) implementation of wordle as a terminal game: https://github.com/vanatteveldt/eldrow. As part of the explanations in each section we will look at and refactor aspects of that code. As a challenge, we ask you to create a cleaner version of the program and we can compare the various ‘solutions’ at the end of the workshop. 
 
 Note that although this workshop is taught with python as a medium of instruction, in general terms most principles are applicable regardless of language
-(presumaby with the exception of type hinting).
+(presumably with the exception of type hinting).
 
