@@ -143,6 +143,10 @@ for you (and any other type of tests you would like to run). It makes it clear w
 commits are working and which ones introduce code-breaking changes. 
 More information on this can be found [here](https://github.com/features/actions).
 
+## Assignment 
+1. Think of unit tests for your improved _wordle_ code. 
+2. Did you run into any bugs that were caught by the unit tests? 
+
 ## Future Reading
 For further reading on this topic, we would like to refer to the following links: 
 1. [Python Unit Testing](https://realpython.com/python-testing/)
