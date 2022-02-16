@@ -17,3 +17,5 @@ Programme:
 4. [Typing](typing.md): Publishing your package on pypi/CRAN
 5. [Testing](testing.md): Unit tests, test-driven development, and github actions
 
+**Example and Exercise:** For this workshop, we will use a (intentionally badly written) version of the worlde game published here: https://github.com/vanatteveldt/eldrow/blob/main/eldrow.py. At the end of the workshop you will have transformed that code into a readable and re-usable program using functions, docstring, type hints, and unit tests. Although for such simple code it might be a bit overkill, this will showcase all the building blocks and principles needed to write quality code in your daily work. 
+
