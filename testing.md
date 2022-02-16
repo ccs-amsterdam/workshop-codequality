@@ -1,6 +1,6 @@
 # Unit Tests
 
-## 1. What are Unit Tests?  
+## What are Unit Tests?  
 Often, after running our code and looking at the results we finally realize that there 
 were some mistakes present which affect the final results. There is nothing else left 
 but to re-run everything after fixing the mistake. This might take another pass as it 
@@ -16,7 +16,7 @@ first iteration already.
 This section will further talk about the utility of unit tests and how you can apply 
 this method to your own project. 
 
-## 2. Utility of Unit Tests
+## Utility of Unit Tests
 There are many cases for which unit tests can be useful. Think of the following cases 
 for example: 
 1. Messy code
@@ -42,7 +42,7 @@ other code (like a _TypeError_ suddenly being introduced!), then unit tests can 
 discovering that a particular feature of the code does not work anymore and hence needs 
 to be fixed. 
 
-## 3. Approach to Creating Unit Tests
+## Approach to Creating Unit Tests
 We have talked about modularity of the code before, in the previous sections, but the 
 same approach is key for the creation of unit tests. When creating and thinking of 
 unit tests, it is important to address the following questions: 
@@ -55,23 +55,27 @@ important to decompose your problems into sub-problems, so each different factor
 is covered by the unit tests. 
 
 For instance, in the case of _wordle_, think about what the core features are? How can
-those be addressed with unit tests? 
+those be addressed with unit tests? Some examples: we can check if the words chosen in the game are 
+actually 5 letters long and that it actually chooses random words at each play. 
+In the next section we will take a look at how these core features are addressed by 
+unit tests. 
 
-## 4. How to Create & Run Unit Tests
-#### 4.1 Setup
+## How to Create & Run Unit Tests
+#### Setup
 Unit tests are created in a separate _tests_ folder. This tests folder follows the same
 structure of the original project. For each file that you want to create unit tests 
-for, you create a new file called _"test_ORIGINAL_FILENAME.py"_. 
+for, you create a new file called _"test_ORIGINAL_FILENAME.py"_. These files then consist 
+of functions whose names start with _"test_FUNCTION_NAME"_. 
 
 To run unit tests, we can use [pytest](https://docs.pytest.org/en/7.0.x/), which we can
-install: 
+install in the following way: 
 ```bash
 $ pip install pytest
 ```
 
 More on its usage can be found in the following sections. 
-#### 4.2 Simple Test Cases
-In this file, we create the file-appropriate unit tests. Simple unit tests, where we 
+#### Simple Test Cases
+In this file, we create the file-appropriate unit tests. For simple unit tests, where we 
 test for one specific test case, we can use simple a `assert` to ensure that the 
 functionality is working according to our own expectations. For instance, if we want 
 to make sure that the _wordle_ functions return 5-letter words, we can `assert` that 
@@ -84,7 +88,7 @@ def test_chosen_word():
 More of such asserts can be added for such simple cases. For example, think of 
 ensuring that the chosen word returned is indeed a string. 
 
-#### 4.2 Automatizing Several Test Cases
+#### Automatizing Several Test Cases
 But what if you want to test the same function for several different testcases? This is 
 where `pytest` comes in. We can use the `pytest.mark.parametrize` functionality to 
 ensure that several different test cases are tested for so many cases are covered. 
@@ -124,7 +128,7 @@ def test_func1(input1, expected_outcome):
     assert func1(input1) == expected_outcome
 ````
 
-#### 4.3 Running the Unit Tests 
+#### Running the Unit Tests 
 To run the unit tests and check how many of them pass, we can run the following command:
 ```bash
 $ pytest tests/
@@ -132,14 +136,14 @@ $ pytest tests/
 This will run all of the unit tests in the tests folder and will illustrate which ones
 went wrong. It will show the expected output and what the actual output was. 
 
-## 5. Unit Tests and GitHub Actions
+## Unit Tests and GitHub Actions
 To prevent forgetting to run these tests, we can make use of GitHub Actions. When 
 pushing a new commit to the repo, GitHub Actions automatically runs the unit tests
 for you (and any other type of tests you would like to run). It makes it clear which
 commits are working and which ones introduce code-breaking changes. 
 More information on this can be found [here](https://github.com/features/actions).
 
-## 6. Future Reading
+## Future Reading
 For further reading on this topic, we would like to refer to the following links: 
 1. [Python Unit Testing](https://realpython.com/python-testing/)
 2. [Pytest](https://docs.pytest.org/en/7.0.x/getting-started.html)
