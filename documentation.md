@@ -177,6 +177,23 @@ Also by convention, the docstring typically consists of:
 
 (ee also [PEP-0257](https://www.python.org/dev/peps/pep-0257/), the 'official' style guide for docstrings)
 
+For describing parameters and return types, it's best to follow the 'Sphinx' format:
+
+```{python}
+def turnover(widget, inventory): 
+    """
+    Compute the total turnover for this widget.
+    
+    :param widget: The widget for which to compute turnover
+    :param inventory: An Inventory object containing the sales data for each widget
+    :return: The total sales volume in dollars
+    """
+    return widget.price * inventory.purchases(widget.id)
+```
+
+Generally, there is no need to state the type (string, int etc) of the arguments or return values,
+as it is better to use [type hinting](typing.md) for that.
+
 **When:** In short, almost every function should be given a docstring, even internal functions. In many cases, a simple one-liner is fine,
 but for functions you expect other people to use it's best to be more verbose and cover various use cases and edge cases
 (for example, you can specify how the function will react to erronous input - will it return None, raise an exception, or do something else?)
@@ -219,3 +236,11 @@ For a real world example in a slightly different use case, see https://github.co
 uses `flask-autodoc` to generate API documentation from the docstrings on the flask routes such as from https://github.com/ccs-amsterdam/amcat4/blob/master/amcat4/api/index.py#L33. 
 
 
+# Exercise
+
+Hopefully, you refactored [eldrow](https://github.com/vanatteveldt/eldrow/blob/main/eldrow.py) by creating various functions for different separate subtasks for the [previous module](structure.py). Now:
+
++ Review the code and see if any code needs comments (and critically review any existing comments)
++ Add docstrings to all your functions
++ Generate documentation using pdoc and/or pdoc3 
++ As a bonus: include the published documentation on github for your branch!
