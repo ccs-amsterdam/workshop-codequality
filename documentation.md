@@ -62,7 +62,7 @@ This comment is actually helpful to understand why `d` needs to be incremented, 
 ### Don't use comments if you could rewrite the code to make it clear by itself
 
 Of course, sometimes code is not trivial to understand, and it can be really helpful to explain what code is trying to do.
-Suppose we have the following line:
+Suppohttps://github.com/vanatteveldt/eldrow/blob/main/eldrow.pyse we have the following line:
 
 ```{python}
 x = [w.title.replace("<br/>","") for w in widgets if w.price * inv.purchases(w.id) > avg_turnover]
@@ -95,6 +95,15 @@ selected_titles = [clean_title(w) for w in widgets if turnover(w) > avg_turnover
 
 Now, the last line is quite readable: we are looking for a list of cleaned titles or widgets whose turnover is higher than average.
 Although this is more lines of code in total, there's a good chance that the functions will be reused in other places, e.g. in calculating the average turnover.
+
+Similarly, in the example of initializing colorama discussed earlier, you could also rewrite the import to avoid the need for a comment:
+
+```{python}
+import colorama
+
+# ... some lines of code ...
+colorama.init()
+```
 
 ### Structure as documentation
 
