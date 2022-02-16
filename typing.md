@@ -112,7 +112,7 @@ def function_1(input_1: str, input_2: int) -> Union[str, int]:
 ## Testing
 To test if the code can run correctly without any _TypeErrors_, we can make use of 
 [mypy](https://mypy.readthedocs.io/). It is a type checker which will help in filtering
-out bugs that are related to typing. 
+out bugs that are related to typing. Some IDEs (e.g. PyCharm) also highlight such incompatibilities.  
 
 #### Installation
 Installing can be simply done with the following 
