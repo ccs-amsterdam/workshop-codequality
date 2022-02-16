@@ -1,3 +1,11 @@
+# Documentation
+
+*Explicit is better than implicit, and readability counts.*
+
+When you are reading someone else's source code (or the script you wrote yourself last year),
+you are often struggling to understand exactly what, when, how, and why the code is doing. 
+Although ideally the code itself will make as much as possible of this explicit
+
 ## Structure as documentation
 
 **What:** We will discuss documentation in more detail in the next module, and see how functions play a central role in writing structured documentation.
