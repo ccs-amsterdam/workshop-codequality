@@ -90,7 +90,7 @@ def turnover(widget, inventory):
 def clean_title(widget):
   return widget.title.replace("<br/>","")
 
-selected_titles = [clean_title(w) for w in widgets if turnover(w) > avg_turnover
+selected_titles = [clean_title(w) for w in widgets if turnover(w) > avg_turnover]
 ```
 
 Now, the last line is quite readable: we are looking for a list of cleaned titles or widgets whose turnover is higher than average.
@@ -150,4 +150,72 @@ for i in range(len(guess)):
 ## The use of docstrings
 
 The inline comments or code changes discussed above are all aimed at people directly reading the code in order to understand or adapt it. 
-However, a main use case of writing clean and re-usable code [..]
+However, a main use case of writing clean and re-usable code is to tell other people how to use your code. 
+In many cases, that would mean importing your code and calling one or more functions. 
+
+
+**What:** To be able to do this, a user doesn't only need to know what the name and arguments of a function are,
+but also understand what the function is supposed to do and the meaning/semantics of the arguments and return value. 
+
+**How:** To add this information, we can use 'docstrings' (documentation strings). A docstring in Python is a string literal placed immediately after the function header:
+
+```{python}
+def turnover(widget, inventory): 
+    """
+    Compute the total turnover for this widget.
+    """
+    return widget.price * inventory.purchases(widget.id)
+```
+
+By convention, the docstring is made using a triple-quoted string, either a short one-liner or spread over multiple lines. 
+Also by convention, the docstring typically consists of:
+
++ A one-line summary of what the function does (phrased as a command and ending with a period)
++ If needed, a longer explanation of the function
++ The meaning/semantics of the accepted arguments (see also the [next section on type hinting](typing.md)
++ The possible return value(s) and semantics
+
+(ee also [PEP-0257](https://www.python.org/dev/peps/pep-0257/), the 'official' style guide for docstrings)
+
+**When:** In short, almost every function should be given a docstring, even internal functions. In many cases, a simple one-liner is fine,
+but for functions you expect other people to use it's best to be more verbose and cover various use cases and edge cases
+(for example, you can specify how the function will react to erronous input - will it return None, raise an exception, or do something else?)
+
+What you should *not* do is repeat the signature from the function header. Thus something like the docstring below is not useful, as it doesn't actually give any new information:
+
+```{python}
+def get_turnover(widget, inventory): 
+   """Get the turnover from widget and inventory."""
+```
+
+### How are docstrings used?
+
+Docstrings can be accessed in many places where you use a function.
+For example, most IDEs like pycharm will display the docstring if you hover over a function call.
+When using python interactively, you can use help(function) to display the docstring on the screen. 
+Finally, if you publish your software or tool on e.g. github,
+you can automatically generate documentation from the docstrings in your code.
+
+For most python scripts, `pdoc` is probably the easiest system to set up and use. 
+To test it out, create one or more functions with docstrings in your script, and run
+
+```
+pip install pdoc
+pdoc scriptname.py 
+```
+
+This should generate the documentation and open a browser to view it locally. 
+You can also save the generated html, e.g. to a docs folder:
+
+```
+pdoc scriptname.py -o docs
+```
+
+And from there it's super easy to setup a github site to publish it.
+
+Alternatively, you can use the competing `pdoc3` to directly generate markdown files and link them from your `README.md`
+
+For a real world example in a slightly different use case, see https://github.com/ccs-amsterdam/amcat4/blob/master/apidoc.md which 
+uses `flask-autodoc` to generate API documentation from the docstrings on the flask routes such as from https://github.com/ccs-amsterdam/amcat4/blob/master/amcat4/api/index.py#L33. 
+
+
