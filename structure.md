@@ -258,7 +258,7 @@ For example, for the new [amcat4](https://github.com/ccs-amsterdam/amcat4) backe
 (`amcat4` itself to deal with most business logic, and `amcat4.api` to provide the REST API),
 and about 10 modules in total (e.g. `amcat4.elastic` to deal with talking to elastic, and `amcat4.api.query` contains the API endpoints related to querying).
 
-### __main__: Command line scripts
+### \_\_main\_\_: Command line scripts
 
 **What:** Very often, code doubles as a library (intended to be imported) and a command line script (intended to be run from the command line / terminal).
 Offering a command line interface is often a useful way for others to easily discover or use your code,
