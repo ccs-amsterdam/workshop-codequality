@@ -228,7 +228,7 @@ while if the function was simply named `find` it would be obvious to keep it as 
 
 Note that there are two special files that you can have in every package: `__init__.py` and `__main__.py`
 (in fact, until python 3.3 it was required to have an `__init__.py` file in every package).
-The `__init__.py` file contains code that is execture whenever the package itself is imported. 
+The `__init__.py` file contains code that is executed whenever the package itself is imported. 
 The main function of this file is to import functions (or other names) from one of the modules in the package directly into the package,
 so the user can directly use those functions from the package:
 
