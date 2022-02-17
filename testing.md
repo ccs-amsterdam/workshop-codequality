@@ -141,7 +141,14 @@ To prevent forgetting to run these tests, we can make use of GitHub Actions. Whe
 pushing a new commit to the repo, GitHub Actions automatically runs the unit tests
 for you (and any other type of tests you would like to run). It makes it clear which
 commits are working and which ones introduce code-breaking changes. 
-More information on this can be found [here](https://github.com/features/actions).
+More information on this can be found [here](https://github.com/features/actions). 
+
+These tests can be run in GitHub Actions through _workflows_. In your repository, 
+you create a _.github_ folder, which consists of a sub-folder called _workflows_. In
+this workflows folder you can specify with separate _.yml_ files what kind of procedures
+should be run. The OS, Python version, and commands to run can be specified in this file. 
+You can take a look at the [code_checker.yml](https://github.com/vanatteveldt/eldrow/blob/solution/.github/workflows/code_checker.yml) 
+file to get an idea of how this procedure should be set up. 
 
 ## Assignment 
 1. Think of unit tests for your improved _wordle_ code. 
