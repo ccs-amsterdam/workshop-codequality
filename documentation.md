@@ -62,7 +62,7 @@ This comment is actually helpful to understand why `d` needs to be incremented, 
 ### Don't use comments if you could rewrite the code to make it clear by itself
 
 Of course, sometimes code is not trivial to understand, and it can be really helpful to explain what code is trying to do.
-Suppohttps://github.com/vanatteveldt/eldrow/blob/main/eldrow.pyse we have the following line:
+Suppose we have the following line:
 
 ```{python}
 x = [w.title.replace("<br/>","") for w in widgets if w.price * inv.purchases(w.id) > avg_turnover]
@@ -175,7 +175,7 @@ Also by convention, the docstring typically consists of:
 + The meaning/semantics of the accepted arguments (see also the [next section on type hinting](typing.md)
 + The possible return value(s) and semantics
 
-(ee also [PEP-0257](https://www.python.org/dev/peps/pep-0257/), the 'official' style guide for docstrings)
+(see also [PEP-0257](https://www.python.org/dev/peps/pep-0257/), the 'official' style guide for docstrings)
 
 For describing parameters and return types, it's best to follow the 'Sphinx' format:
 
