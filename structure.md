@@ -297,8 +297,8 @@ Look at the full eldrow code [here](https://github.com/vanatteveldt/eldrow/blob/
 * Can you identify parts of the code that violate the DRY or separation of concerns?
 * Which functions would you make to solve these issues?
 * Do you think the code needs separate modules? 
-* Refactor the code by making those functions/modules and changing the main logic. 
+* Refactor the code by making those functions/modules and changing the main logic.  
 * Add `__main__`  code to separate command line usage from the created functions.
 * Do you think the new code improves on the reusability and readability of the program? 
 
-(Ideally, clone the code locally, start a new branch, and make your changes in the branch so we can compare them through a pull request! See our [previous workshop on using github](https://github.com/vanatteveldt/github-workshop))
+To work on the code, create a fork of the [eldrow](https://github.com/vanatteveldt/eldrow) repository (button in top right) and clone the code locally, and commit and push your changes! See also our [previous workshop on using github](https://github.com/vanatteveldt/github-workshop)
