@@ -61,8 +61,10 @@ for i in range(len(guess)):
 ```
 
 In this case, the direct benefit of turning the loop body into a function is not immediately clear.
-However, this is very useful if operation is used in different places of the code. 
-But also in a case like this, moving the code into a separate function can help for readability, 
+However, this is very useful if the function can be used in different places of the code.
+For example, if you need to validate a word or clean a text in multiple places in your program. 
+
+But also in a case like above, moving the code into a separate function can help for readability, 
 as it decreases the complexity of the main loop, making it easier to get a quick overview of what happens in each step,
 and being able to zoom into the specifics by looking at the function definition
 (which is generally made easy in PyCharm or other editors as you can click or right-click on the function name to see the definition).
